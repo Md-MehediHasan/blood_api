@@ -56,7 +56,7 @@ class RegisterDonar(APIView):
        try:
         user=User.objects.create_user(name=name,email=email,contact=contact_number,password=password)
         if user:
-            donar=Donar.objects.create(user=user,district=district,upazila=upazila,blood_group=blood_id,last_donate=last_donate,contact_number=contact_number,work_for='self_satisfaction')
+            donar=Donar.objects.create(user=user,district=district,upazila=upazila,blood_group=blood_id,last_donate=last_donate,contact_number=contact_number,work_for='public_donar')
             return Response({'msg':'Account Created Successfully'},status=status.HTTP_201_CREATED)
         else:
             return Response({'msg':'User creation Failed'},status=status.HTTP_403_FORBIDDEN)
